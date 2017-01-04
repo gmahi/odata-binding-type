@@ -1,10 +1,17 @@
 <!-- Master.view.xml-->
-<mvc:View controllerName="sapui5.demo.odata.readingdata.bestpractice.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+<mvc:View controllerName="sapui5.demo.odata.readingdata.bestpractice.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
 	<Page title="Product {ProductID} Info" binding="{/Products(1)}" id="productInfo">
 		<content>
 			<Panel>
-				<Text text="Product name: {ProductName}"/>
-				<Input id="newProductName" maxLength="40" placeholder="New Product name"/>
+				<Text text="Product Info: {ProductName}, {QuantityPerUnit}"></Text>
+				<f:SimpleForm>
+					<core:Title text="Product Information"/>
+					<Label text="Product Name"/>
+					<Input maxLength="40" value="{ProductName}" valueLiveUpdate="true"/>
+					<Label text="Quantity perUnit"/>
+					<Input maxLength="20" value="{QuantityPerUnit}" valueLiveUpdate="true"/>
+				</f:SimpleForm>
 			</Panel>
 		</content>
 		<footer>
@@ -12,6 +19,7 @@
 				<contentRight>
 					<Button icon="sap-icon://undo" press="onReset" text="Reset Changes"/>
 					<Button icon="sap-icon://accept" press="onChange" text="Change Product Name" type="Accept"/>
+					<Button icon="sap-icon://display" type="Accept" press="onCheck" text="Check changes"/>
 				</contentRight>
 			</Bar>
 		</footer>
