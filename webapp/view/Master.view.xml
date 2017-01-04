@@ -1,8 +1,19 @@
 <!-- Master.view.xml-->
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
-	<Page title="Product {ProductID} Info" binding="{/Products(1)}">
+<mvc:View controllerName="sapui5.demo.odata.readingdata.bestpractice.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="Product {ProductID} Info" binding="{/Products(1)}" id="productInfo">
 		<content>
-			<Text text="Product name: {ProductName}" class="sapUiMediumMargin"></Text>
+			<Panel>
+				<Text text="Product name: {ProductName}"/>
+				<Input id="newProductName" maxLength="40" placeholder="New Product name"/>
+			</Panel>
 		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://undo" press="onReset" text="Reset Changes"/>
+					<Button icon="sap-icon://accept" press="onChange" text="Change Product Name" type="Accept"/>
+				</contentRight>
+			</Bar>
+		</footer>
 	</Page>
 </mvc:View>
